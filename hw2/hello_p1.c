@@ -7,7 +7,7 @@ MODULE_DESCRIPTION("Hello, world in Linux Kernel Training");
 MODULE_LICENSE("Dual BSD/GPL");
 
 
-extern int 	print_hello(void)
+extern int print_hello(void)
 {
 	printk(KERN_EMERG "Hello, world!\n");
 	return 0;

@@ -12,24 +12,27 @@ module_param(n, uint, 0644);
 
 extern void print_hello(void);
 
-static int __init init(void) {
+static int __init init(void)
+{
 	WARN_ON(n == 0);
 	BUG_ON(n > 10);
-	if (n == 5) return -EINVAL;
-	if (n == 2) {
+	if (n == 5)
+		return -EINVAL;
+	if (n == 2)
 		try_module_get(THIS_MODULE);
-	}
 	int i = 0;
-	for (; i < n; i++) {
+
+	for (; i < n; i++)
 		print_hello();
-	}
 	return 0;
 }
 
 static void __exit print_goodbuy(void)
 {
-	u8 *dvar = (u8*) __kmalloc(1,GFP_KERNEL);
-	if (n == 3) *dvar = 0x90;
+	u8 *dvar = (u8 *) __kmalloc(1, GFP_KERNEL);
+
+	if (n == 3)
+		*dvar = 0x90;
 	printk(KERN_EMERG "Good bye cruel world\n");
 }
 
