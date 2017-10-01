@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"build_systems":
+    [
+        {
+            "name": "make",
+            "shell_cmd": "make KDIR=/home/srgi/Study/mykernel/linux/build CROSS_COMPILE=aarch64-linux-gnu- ARCH=arm64 clean && make KDIR=/home/srgi/Study/mykernel/linux/build CROSS_COMPILE=aarch64-linux-gnu- ARCH=arm64 && cp ./*.ko /home/srgi/Study/mykernel/rfs_arm64/home/a/modules/"
+        }
+    ]
+}
