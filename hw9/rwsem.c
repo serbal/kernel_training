@@ -58,8 +58,8 @@ static int read_thread2(void *data)
 	int n;
 	while(true) {
 		down_read(&my_rwlock);
-		if (concurr_check%2)
-			printk(KERN_EMERG ">>>>>>>>>>>>>>>>concurrent reading<<<<<<<<<<<<<<<\n");
+		if (concurr_check % 2)
+			printk(KERN_EMERG ">>>>>>>>>> concurrent reading <<<<<<<<<<<\n");
 		n = count;
 		mdelay(1);
 		up_read(&my_rwlock);
@@ -85,8 +85,6 @@ static int __exit sync_init(void)
 		printk(KERN_EMERG "Unable to start kernel thread 1.\n");
 		return 0;
 	}
-
-	// init_completion(&complete_th2);
 	kthread_2 = kthread_run(read_thread1, &count, "read_thread1");
 	if (IS_ERR(kthread_2)) {
 		printk(KERN_EMERG "Unable to start kernel read thread 1.\n");
